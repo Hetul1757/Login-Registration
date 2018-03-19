@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Admin Portal</span>
+  
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+    <span [hidden]="!message"><button mat-button routerLink="user">View Doctor</button></span>  
+    <span  [hidden]="!message"><button mat-button routerLink="patient">View Patient</button></span>
+    <span  [hidden]="!message"><button mat-button routerLink="signup">Add</button></span>
+    
+    <button mat-button [matMenuTriggerFor]="menu">Admin</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="myProfile()">My Profile</button>
+    <button mat-menu-item (click)="logout()">Log out</button>
+  </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  

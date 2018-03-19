@@ -1,0 +1,79 @@
+<mat-card class="example-card">
+  <h3 class="example-h3">Update</h3>
+<form class="example-form" ng-form="Form">
+  <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" [formControl]="name" value="{{user.name}}">
+          <mat-hint>Full Name</mat-hint>
+        
+            <mat-error *ngIf="name.hasError('pattern')">
+              Pattern is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+       <mat-form-field class="example-full-width">
+            <input matInput placeholder="User Name" [formControl]="uname" value="{{user.username}}">
+            <mat-hint>minimum 8 letters</mat-hint>
+            
+              <mat-error *ngIf="uname.hasError('pattern')">
+                UserName less then 8 letter not allowed
+              </mat-error>  
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+              <input type="password" matInput placeholder="Password" [formControl]="pwd" value="{{user.pwd}}">
+              <mat-hint>Atleast one special character,number,capital </mat-hint>
+              <mat-error *ngIf="pwd.hasError('required')">
+                  Password is required
+                </mat-error>
+                <mat-error *ngIf="pwd.hasError('pattern')">
+                  one capital letter and number and special character
+                  </mat-error>
+            </mat-form-field>
+            
+<mat-form-field class="example-full-width">
+<input matInput placeholder="Email" [formControl]="email"
+       [errorStateMatcher]="matcher" value="{{user.email}}">
+<mat-error *ngIf="!email.hasError('required')">
+  Please enter a valid email address
+</mat-error>
+
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Telephone" [formControl]="tel"
+         [errorStateMatcher]="matcher" value="{{user.tel}}">
+ 
+  
+  <mat-error *ngIf="tel.hasError('pattern')">
+    please enter valid tel
+  </mat-error>
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <mat-select placeholder="Gender"  [formControl]="gender"
+    [errorStateMatcher]="matcher" value="{{user.gender}}">
+      <mat-option *ngFor="let gender of genders" [value]="gender.value">
+        {{ gender.viewValue }}
+      </mat-option>
+    </mat-select>
+    
+  </mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <mat-select placeholder="Specialist"  [formControl]="specialist"
+    [errorStateMatcher]="matcher" value="{{user.specialist}}">
+      <mat-option *ngFor="let specialist of specialists" [value]="specialist.value">
+        {{ specialist.viewValue }}
+      </mat-option>
+    </mat-select>
+    
+    </mat-form-field>
+    <div class="button-row">
+        <button mat-raised-button (click)="update()"  >Submit</button>
+        <button mat-raised-button (click)="login()">Register</button>
+    </div>    
+</form>
+</mat-card>
+
+
+
+
+
+

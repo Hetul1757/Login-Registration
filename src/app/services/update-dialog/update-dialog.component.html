@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Update User</h1>
+    <mat-dialog-content>
+      Are you sure you want to update?
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <!--<button mat-button [(ngModel)]="data.choice" value="yes">Yes</button>
+      <button mat-button [(ngModel)]="data.choice" value="no">No</button>
+      <input type="text" [(ngModel)]="data.choice" />
+      <button ng-click="data.choice=true" >OK</button>
+    <button ng-click="data.choice=true" [mat-dialog-close]="data.choice" cdkFocusInitial>Ok</button>
+  <input type="checkbox" ng-model="data.choice" ng-init="data.choice = true" >
+<button ng-click="data.choice=true">Yes</button>-->
+      <button mat-button [mat-dialog-close]="data.choice1">Ok</button>
+      <button mat-button (click)="onNoClick()">Cancle</button>    
+</mat-dialog-actions>

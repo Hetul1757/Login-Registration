@@ -1,0 +1,89 @@
+<mat-card class="example-card">
+    <h3 class="example-h3">Register</h3>
+<form class="example-form" ng-form="Form">
+    <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" [formControl]="name">
+            <mat-hint>Full Name</mat-hint>
+            <mat-error *ngIf="name.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="name.hasError('pattern')">
+                Pattern is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+         <mat-form-field class="example-full-width">
+              <input matInput placeholder="User Name" [formControl]="uname">
+              <mat-hint>minimum 8 letters</mat-hint>
+              <mat-error *ngIf="uname.hasError('required')">
+                  User Name is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="uname.hasError('pattern')">
+                  UserName less then 8 letter not allowed
+                </mat-error>  
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input type="password" matInput placeholder="Password" [formControl]="pwd">
+                <mat-hint>Atleast one special character,number,capital </mat-hint>
+                <mat-error *ngIf="pwd.hasError('required')">
+                    Password is required
+                  </mat-error>
+                  <mat-error *ngIf="pwd.hasError('pattern')">
+                    one capital letter and number and special character
+                    </mat-error>
+              </mat-form-field>
+              
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Email" [formControl]="email"
+         [errorStateMatcher]="matcher">
+  <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+    Please enter a valid email address
+  </mat-error>
+  <mat-error *ngIf="email.hasError('required')">
+    Email is <strong>required</strong>
+  </mat-error>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Telephone" [formControl]="tel"
+           [errorStateMatcher]="matcher">
+    <mat-hint>Errors appear instantly!</mat-hint>
+    <mat-error *ngIf="tel.hasError('required')">
+      Please enter tel
+    </mat-error>
+    <mat-error *ngIf="tel.hasError('pattern')">
+      please enter valid tel
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width">
+      <mat-select placeholder="Gender"  [formControl]="gender"
+      [errorStateMatcher]="matcher">
+        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+          {{ gender.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="gender.hasError('required')">
+          Please enter Gender
+        </mat-error>
+    </mat-form-field>
+
+<mat-form-field class="example-full-width">
+      <mat-select placeholder="Specialist"  [formControl]="specialist"
+      [errorStateMatcher]="matcher">
+        <mat-option *ngFor="let specialist of specialists" [value]="specialist.value">
+          {{ specialist.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="specialist.hasError('required')">
+          Please enter Specialist
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+          <button mat-raised-button (click)="onSubmit()"  [disabled]="isError()">Submit</button>
+          <button mat-raised-button (click)="login()">Login</button>
+      </div>    
+</form>
+</mat-card>
+
+
+
+

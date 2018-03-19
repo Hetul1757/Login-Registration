@@ -1,0 +1,35 @@
+
+<mat-card class="example-card">
+  <h3 class="example-h3">Login</h3>
+<form class="example-form" ng-form="Form">
+       <mat-form-field class="example-full-width">
+            <input matInput placeholder="User Name" [formControl]="uname">
+            <mat-error *ngIf="uname.hasError('required')">
+                User Name is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="uname.hasError('pattern')">
+                UserName less then 8 letter not allowed
+              </mat-error>  
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+              <input type="password" matInput placeholder="Password" [formControl]="pwd">
+              <mat-error *ngIf="pwd.hasError('required')">
+                  Password is required
+                </mat-error>
+                <mat-error *ngIf="pwd.hasError('pattern')">
+                  one capital letter and number and special character
+                  </mat-error>
+            </mat-form-field>
+    <div class="button-row">
+        <button mat-raised-button (click)="login()" [disabled]="false">Login</button>
+        <button mat-raised-button (click)="register()">Register</button>
+    </div>    
+</form><br>
+<mat-error>
+  {{error}}
+</mat-error> 
+</mat-card>
+
+
+
+

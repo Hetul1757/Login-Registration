@@ -1,0 +1,58 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" (click)="cancel()">
+      </mat-form-field>
+    </div>
+  
+    <mat-table #table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef>User Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email Address </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="tel">
+        <mat-header-cell *matHeaderCellDef> Telephone </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.tel}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef> Gender</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="specialist">
+        <mat-header-cell *matHeaderCellDef> Specialist </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.specialist}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="update">
+        <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+        <mat-cell *matCellDef="let element"><div><button class="btn btn-primary" (click)="update(element.id)"><i class="far fa-edit"></i></button></div></mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let element"><div><button class="btn btn-danger" (click)="delete(element.id)"><i class="far fa-trash-alt"></i></button></div></mat-cell>
+      </ng-container>
+      
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  
+  
